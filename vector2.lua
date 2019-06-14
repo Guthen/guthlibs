@@ -4,10 +4,9 @@ local mtvector2 = {}
 
 local Vector2 = {}
 function Vector2:new( x, y )
-    assert( x and y, "arguments must be valid" )
     local _vector = {}
-    _vector.x = x
-    _vector.y = y
+    _vector.x = x or 0
+    _vector.y = y or 0
     
     return setmetatable( _vector, mtvector2 )
 end

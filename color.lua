@@ -8,7 +8,6 @@ end
 
 local Color = {}
 function Color:new( r, g, b, a )
-    assert( r and g and b, "arguments must be valid" )
     local _color = {}
     _color.r = clamp( r or 0, 0, 255 ) 
     _color.g = clamp( g or 0, 0, 255 ) 
