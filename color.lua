@@ -42,6 +42,26 @@ function Color:GetSum( alpha )
     return alpha and sum + self.a or sum
 end
 
+function Color:SetRed( r )
+    self.r = clamp( r, 0, 255 )
+    return self.r
+end
+
+function Color:SetGreen( g )
+    self.g = clamp( g, 0, 255 )
+    return self.g
+end
+
+function Color:SetBlue( b )
+    self.b = clamp( b, 0, 255 )
+    return self.b
+end
+
+function Color:SetAlpha( a )
+    self.a = clamp( a, 0, 255 )
+    return self.a
+end
+
 --  > mtcolor: metamethods
 
 function mtcolor.__tostring( c )
