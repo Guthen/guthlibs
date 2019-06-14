@@ -70,48 +70,32 @@ function mtcolor.__tostring( c )
 end
 
 function mtcolor.__add( c1, c2 )
-    local r = c1.r + c2.r
-    local g = c1.g + c2.g
-    local b = c1.b + c2.b
-    local a = c1.a + c2.a
-    return Color:new( r, g, b, a )
+    return Color:new( c1.r + c2.r, c1.g + c2.g, c1.b + c2.b, c1.a + c2.a )
 end
 
 function mtcolor.__sub( c1, c2 )
-    local r = c1.r - c2.r
-    local g = c1.g - c2.g
-    local b = c1.b - c2.b
-    local a = c1.a - c2.a
-    return Color:new( r, g, b, a )
+    return Color:new( c1.r - c2.r, c1.g - c2.g, c1.b - c2.b, c1.a - c2.a )
 end
 
 function mtcolor.__mul( c1, c2 )
-    local r = c1.r * c2.r
-    local g = c1.g * c2.g
-    local b = c1.b * c2.b
-    local a = c1.a * c2.a
-    return Color:new( r, g, b, a )
+    return Color:new( c1.r * c2.r, c1.g * c2.g, c1.b * c2.b, c1.a * c2.a )
 end
 
 function mtcolor.__div( c1, c2 )
-    local r = c1.r / c2.r
-    local g = c1.g / c2.g
-    local b = c1.b / c2.b
-    local a = c1.a / c2.a
-    return Color:new( r, g, b, a )
+    return Color:new( c1.r / c2.r, c1.g / c2.g, c1.b / c2.b, c1.a / c2.a )
 end
 
 function mtcolor.__newindex( _, k )
     error( ("can't create new index '%s' to Color"):format( k ), 2 )
 end
 
-mtcolor.__metatable = true
-mtcolor.__index = Color
+mtcolor.__metatable = true -- disable external modification
+mtcolor.__index = Color -- add Color methods to metatable
 
 --  > Color: set metamethod _call
 
 setmetatable( Color,  {
-  __call = function ( self, ... )
+  __call = function ( self, ... ) -- call Color:new() when we call Color()
       return self:new( ... )
   end
 } )

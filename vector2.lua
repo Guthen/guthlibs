@@ -20,8 +20,22 @@ function Vector2:GetY()
     return self.y
 end
 
+function Vector2:GetSum()
+    return self.x + self.y
+end
+
 function Vector2:Expose()
     return self.x, self.y
+end
+
+function Vector2:SetX( x )
+    self.x = x
+    return self.x
+end
+
+function Vector2:SetY( y )
+    self.y = y
+    return self.y
 end
 
 --  > mtvector2: metamethods
@@ -50,11 +64,13 @@ function mtvector2.__newindex( _, k )
     error( ("can't create new index '%s' to Vector"):format( k ), 2 )
 end
 
-mtvector2.__metatable = true -- disable modification
-mtvector2.__index = Vector2
+mtvector2.__metatable = true -- disable external modification
+mtvector2.__index = Vector2 -- add Vector2 methods to metatable
+
+--  > Vector2: set metamethod _call
 
 setmetatable( Vector2, {
-    __call = function( self, ... )
+    __call = function( self, ... ) -- call Vector2:new() when we call Vector2()
         return self:new( ... )
     end
 } )
