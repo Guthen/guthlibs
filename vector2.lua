@@ -28,12 +28,12 @@ function Vector2:Expose()
 end
 
 function Vector2:SetX( x )
-    self.x = x
+    self.x = x or 0
     return self.x
 end
 
 function Vector2:SetY( y )
-    self.y = y
+    self.y = y or 0
     return self.y
 end
 
