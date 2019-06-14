@@ -8,6 +8,7 @@ end
 
 local Color = {}
 function Color:new( r, g, b, a )
+    assert( r and g and b, "arguments must be valid" )
     local _color = {}
     _color.r = clamp( r or 0, 0, 255 ) 
     _color.g = clamp( g or 0, 0, 255 ) 
@@ -100,7 +101,7 @@ function mtcolor.__div( c1, c2 )
     return Color:new( r, g, b, a )
 end
 
-function mtcolor.__newindex( _, k, v )
+function mtcolor.__newindex( _, k )
     error( ("can't create new index '%s' to Color"):format( k ), 2 )
 end
 
@@ -114,3 +115,5 @@ setmetatable( Color,  {
       return self:new( ... )
   end
 } )
+
+return Color
