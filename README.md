@@ -9,3 +9,7 @@ This contains :
 ## How do I use them ?
 
 Check the repository's wiki summary : https://github.com/Guthen/guthlibs/wiki/Summary
+
+## How can I contact you ?
+
+Join this Discord : https://www.discord.gg/P9ECj4W
