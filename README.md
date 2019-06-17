@@ -5,6 +5,7 @@
 This contains :
 + A color library : https://github.com/Guthen/guthlibs/wiki/Lib:-Color;
 + A vector2 library : https://github.com/Guthen/guthlibs/wiki/Lib:-Vector2;
++ A hook library : https://github.com/Guthen/guthlibs/wiki/Lib:-Hook
 
 ## How do I use them ?
 
