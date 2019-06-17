@@ -79,7 +79,7 @@ function Vector2:Normalize()
     local m = self:Lenght()
     self.x = self.x / m
     self.y = self.y / m
-    return Vector2( self.x, self.y )
+    return self
 end
 
 function Vector2:Zero()
