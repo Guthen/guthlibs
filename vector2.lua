@@ -36,6 +36,16 @@ function Vector2:Expose()
     return self.x, self.y
 end
 
+function Vector2:Opposite()
+    self.x = -self.x
+    self.y = -self.y
+    return self
+end
+
+function Vector2:GetOpposite()
+    return Vector2( -self.x, -self.y )
+end
+
 function Vector2:WithinBox( startPos, endPos )
     if not isvector2( startPos ) or not isvector2( endPos ) then return error( "args must be Vector2 !", 2 ) end
     
@@ -85,6 +95,7 @@ end
 function Vector2:Zero()
     self.x = 0
     self.y = 0
+    return self
 end
 
 function Vector2:SetX( x )
