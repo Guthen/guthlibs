@@ -9,17 +9,17 @@ end
 local Color = {}
 function Color:new( r, g, b, a )
     local _color = {}
-    _color.r = clamp( r or 0, 0, 255 ) 
-    _color.g = clamp( g or 0, 0, 255 ) 
+    _color.r = clamp( r or 0, 0, 255 )
+    _color.g = clamp( g or 0, 0, 255 )
     _color.b = clamp( b or 0, 0, 255 )
     _color.a = clamp( a or 255, 0, 255 )
-    
+
     return setmetatable( _color, mtcolor )
 end
 
 function Color:GetRed()
     return self.r
-end 
+end
 
 function Color:GetGreen()
     return self.g
@@ -60,6 +60,17 @@ end
 function Color:SetAlpha( a )
     self.a = clamp( a, 0, 255 )
     return self.a
+end
+
+function Color:Normalize()
+    self.r = self.r/255
+    self.g = self.g/255
+    self.b = self.b/255
+    return self
+end
+
+function Color:GetNormal()
+    return Color( self.r/255, self.g/255, self.b/255 )
 end
 
 --  > mtcolor: metamethods
